@@ -108,7 +108,7 @@ function createSnowflake() {
     // 애니메이션 종료 후 제거
     setTimeout(() => {
         snowflake.remove();
-        accumulateSnow(); // 눈송이가 제거될 때 눈 쌓이기
+ //       accumulateSnow(); // 눈송이가 제거될 때 눈 쌓이기
     }, 5000);
 }
 
