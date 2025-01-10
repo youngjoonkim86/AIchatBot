@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>눈송이가 쌓이는 채팅</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Patrick+Hand&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="questions">
+            <div class="question" onclick="handleQuestionClick('AI 정비 챗봇이란 무엇인가요?')">Q1. AI 정비 챗봇이란 무엇인가요?</div>
+            <div class="question" onclick="handleQuestionClick('기존 정비 시스템과 AI 정비 챗봇의 차이점은 무엇인가요?')">Q2. 기존 정비 시스템과 AI 정비 챗봇의 차이점은 무엇인가요?</div>
+            <div class="question" onclick="handleQuestionClick('AI 정비 챗봇은 어떤 기술로 작동하나요?')">Q3. AI 정비 챗봇은 어떤 기술로 작동하나요?</div>
+            <div class="question" onclick="handleQuestionClick('AI 정비 챗봇을 도입하면 어떤 효과가 있나요?')">Q4. AI 정비 챗봇을 도입하면 어떤 효과가 있나요?</div>
+            <div class="question" onclick="handleQuestionClick('초보 정비사도 AI 정비 챗봇을 사용할 수 있나요?')">Q5. 초보 정비사도 AI 정비 챗봇을 사용할 수 있나요?</div>
+        </div>
+        <div class="chat-container">
+            <div class="snow-container" id="snow-container"></div> <!-- 눈 내리는 영역 -->
+            <div class="messages" id="messages"></div> <!-- 채팅 메시지 영역 -->
+            <div class="input-container">
+                <input type="text" id="userInput" placeholder="Type your message...">
+                <button onclick="sendMessage()">
+                    <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Send">
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

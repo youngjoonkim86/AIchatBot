@@ -1,0 +1,214 @@
+body {
+    font-family: 'Quicksand', cursive, sans-serif;
+    background: url('shortcut.png') no-repeat center center fixed;
+    background-size: 100%; /* 이미지 크기 조정 */
+    background-blend-mode: lighten; /* 배경과 부드럽게 혼합 */
+    background-color: #fffaf3; /* 배경색 지정 */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    height: 90%;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.85); /* 투명도를 추가하여 배경 노출 */
+    backdrop-filter: blur(10px); /* 배경 흐림 효과 */
+}
+
+.questions {
+    width: 250px;
+    background: #ffd6e0;
+    color: #333;
+    overflow-y: auto;
+    border-right: 2px dashed #f4a6bc;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.question {
+    cursor: pointer;
+    font-family: 'Caveat', cursive;
+    padding: 12px;
+    margin: 0;
+    background-color: #ffe0e9;
+    border: 1px solid #f4a6bc;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.question:hover {
+    background-color: #ffc4d1;
+    transform: translateY(-2px);
+}
+
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 0 15px 15px 0;
+}
+
+.messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    font-family: 'Quicksand', sans-serif; /* 채팅창 기본 텍스트 */
+    background: linear-gradient(135deg, rgba(255, 230, 240, 0.8), rgba(255, 255, 255, 0.8)), 
+                url('shortcut.png') no-repeat center center; /* 배경 이미지 추가 */
+    background-size: 100% 100%; /* 채팅창 크기와 동일하게 설정 */
+    border-bottom: 2px dashed #ffd6e0;
+    position: relative; /* 내부 요소와 겹침 방지 */
+}
+
+
+.message {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.user {
+    justify-content: flex-end;
+}
+
+.ai {
+    justify-content: flex-start;
+}
+
+.message img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.message .bubble {
+    max-width: 70%;
+    padding: 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.user .bubble {
+    font-family: 'Patrick Hand', cursive;
+    background: rgba(208, 230, 255, 0.8); /* 투명도 추가 */
+    color: #333;
+    border-radius: 20px 20px 0 20px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ai .bubble {
+    font-family: 'Patrick Hand', cursive;
+    background: rgba(249, 249, 249, 0.8); /* 투명도 추가 */
+    color: #333;
+    border-radius: 20px 20px 20px 0;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #ffffff;
+    border-top: 2px dashed #ffd6e0;
+}
+
+.input-container input {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: 2px dashed #f4a6bc;
+    border-radius: 20px;
+    outline: none;
+    margin-right: 10px;
+    background: #fffaf3;
+}
+
+.input-container button {
+    background: #ffa6b8;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.input-container button:hover {
+    background: #ff7a95;
+}
+
+.input-container button img {
+    width: 16px;
+    height: 16px;
+}
+/* 눈 내리는 컨테이너 */
+.snow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* 클릭 방지 */
+    z-index: 5; /* 채팅창 위에 눈 표시 */
+    overflow: hidden;
+}
+
+/* 눈송이 스타일 */
+.snowflake {
+    position: absolute;
+    top: -10%; /* 화면 위에서 시작 */
+    font-size: 1px; /* 눈송이 크기 */
+    color: rgba(255, 255, 255, 0.8); /* 흰색 눈송이 */
+    animation: fall linear infinite;
+}
+
+/* 눈송이가 떨어지는 애니메이션 */
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0; /* 사라짐 */
+    }
+}
+
+/* 채팅창 상단에 눈이 쌓이는 영역 */
+.snow-pile {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 4;
+    transition: height 0.5s ease; /* 눈이 쌓이는 애니메이션 */
+}
