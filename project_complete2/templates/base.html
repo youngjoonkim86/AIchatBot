@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Management System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>PDF Management System</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('process_pdf_page') }}">Process PDF</a>
+            <a href="{{ url_for('dictionary_page') }}">Dictionary</a>
+            <a href="{{ url_for('pdf_management_page') }}">PDF Management</a>
+            <a href="{{ url_for('data_management_page') }}">Data Management</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

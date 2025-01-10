@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Dictionary Management</h2>
+<table id="dictionary-table" class="table">
+    <thead>
+        <tr>
+            <th>Page Number</th>
+            <th>Word</th>
+            <th>Count</th>
+            <th>Translated Text</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- 데이터 로드 -->
+    </tbody>
+</table>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch("/dictionary-data")
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.querySelector("#dictionary-table tbody");
+                tableBody.innerHTML = data.map(row => `
+                    <tr>
+                        <td>${row.page_number || "N/A"}</td>
+                        <td>${row.word}</td>
+                        <td>${row.count}</td>
+                        <td>${row.translated_text}</td>
+                    </tr>
+                `).join("");
+            })
+            .catch(error => console.error("Failed to load dictionary data:", error));
+    });
+</script>
+{% endblock %}

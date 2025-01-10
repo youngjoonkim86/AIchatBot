@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Process PDF</h2>
+<form id="upload-form" enctype="multipart/form-data" method="POST" action="/process">
+    <input type="file" name="pdf_file" accept=".pdf" required>
+    <button type="submit">Upload and Process</button>
+</form>
+<div id="processing-results">
+    <h2>Processing Results</h2>
+    <div class="progress-bar">
+        <div id="progress-fill" style="width: 0%;">0%</div>
+    </div>
+    <div id="status-message">Waiting for file...</div>
+</div>
+<script src="/static/script.js"></script>
+{% endblock %}
