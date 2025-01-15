@@ -1,0 +1,8 @@
+flask
+PyPDF2
+reportlab
+pdfplumber
+fitz
+pytesseract
+pdf2image
+PyMuPDF

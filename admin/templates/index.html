@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>PDF Viewer</h1>
+    </header>
+    <main>
+        <div id="page-container">
+            {% for page in pages %}
+            <div class="page" id="page-{{ loop.index }}" {% if loop.index != 1 %}style="display: none;"{% endif %}>
+                <h2>Page {{ loop.index }}</h2>
+
+                <!-- 텍스트, 이미지, 테이블 통합 -->
+                <div class="content-layer">
+                    <!-- 원본 텍스트 -->
+                    <h3>Original Text</h3>
+                    <textarea readonly>{{ page.original_text }}</textarea>
+
+                    <!-- 번역 텍스트 -->
+                    <h3>Translated Text</h3>
+                    <textarea>{{ page.translated_text }}</textarea>
+
+                    <!-- 이미지 -->
+                    <h3>Images</h3>
+                    {% if page.images %}
+                    {% for image in page.images %}
+                    <img src="{{ image }}" alt="Image for Page {{ loop.index }}" class="page-image">
+                    {% endfor %}
+                    {% else %}
+                    <p>No images available for this page.</p>
+                    {% endif %}
+
+                    <!-- 테이블 -->
+                    <h3>Tables</h3>
+                    {% if page.tables %}
+                    {% for table in page.tables %}
+                    <table>
+                        <tbody>
+                            {% for row in table %}
+                            <tr>
+                                {% for cell in row %}
+                                <td>{{ cell }}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% endfor %}
+                    {% else %}
+                    <p>No tables available for this page.</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- 페이지 이동 버튼 -->
+        <div class="pagination">
+            <button id="prev-page">Previous</button>
+            <input type="number" id="page-number" min="1" max="{{ total_pages }}" value="1">
+            <button id="next-page">Next</button>
+        </div>
+    </main>
+    <script>
+        // Flask 템플릿 변수 전달
+        const totalPages = parseInt("{{ total_pages | safe }}");
+        let currentPage = 1;
+
+        // 이전 페이지로 이동
+        document.getElementById('prev-page').addEventListener('click', () => changePage(currentPage - 1));
+
+        // 다음 페이지로 이동
+        document.getElementById('next-page').addEventListener('click', () => changePage(currentPage + 1));
+
+        // 페이지 번호로 이동
+        document.getElementById('page-number').addEventListener('change', (e) => {
+            const newPage = parseInt(e.target.value);
+            if (newPage >= 1 && newPage <= totalPages) changePage(newPage);
+        });
+
+        // 페이지 변경 함수
+        function changePage(newPage) {
+            if (newPage < 1 || newPage > totalPages) return;
+            document.getElementById(`page-${currentPage}`).style.display = 'none';
+            document.getElementById(`page-${newPage}`).style.display = 'block';
+            currentPage = newPage;
+            document.getElementById('page-number').value = currentPage;
+        }
+    </script>
+</body>
+</html>
