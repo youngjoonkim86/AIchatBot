@@ -9,11 +9,14 @@
 </head>
 <body>
     <div class="container">
+        <!-- Header Section -->
         <div class="header">
             <div class="meta">제1호 &mdash; 2025년 1월호 &mdash; DT News</div>
             <h1>DT 추진본부 NEWSLETTER</h1>
             <div class="subtitle">제1호 - 정비 매뉴얼 ChatBot</div>
         </div>
+
+        <!-- Content Section -->
         <div class="content">
             <h2>요즘 GPT 많이 이용하시죠?</h2>
             <div class="chatbox">
@@ -29,17 +32,19 @@
             <h2>원하시는 답변이 맞나요...?</h2>
             <p>그래서 <span class="highlight">우리에게 필요한 Chat bot</span>을 직접 만듭니다!</p>
         </div>
+
+        <!-- Layout Section -->
         <div class="layout">
             <!-- 좌측 질문 섹션 -->
             <div class="questions">
                 <select id="questionCategory" onchange="updateQuestions()">
-                    <option value="operational1">AI정비챗봇이 무엇인가요?</option>
-                    <option value="operational2">AI정비챗봇이 꼭필요한가요?</option>
-                    <option value="operational3">AI정비챗봇은 어떻게 사용하는건가요?</option>
-                    <option value="operational4">AI정비챗봇은 언제부터 사용할 수 있나요?</option>
+                    <option value="operational1">AI 정비 챗봇이란</option>
+                    <option value="operational2">AI 정비 챗봇의 필요성</option>
+                    <option value="operational3">AI 정비 챗봇 사용법</option>
                 </select>
                 <div id="questionList"></div>
             </div>
+
             <!-- 우측 채팅 섹션 -->
             <div class="chat-container">
                 <div id="messages" class="messages"></div>
@@ -51,10 +56,12 @@
                 </div>
             </div>
         </div>
+
+        <!-- Newsletter Event Section -->
         <div class="newsletter-event">
             <h2>뉴스레터 이벤트 이름을 지어주세요!</h2>
             <p>새로운 뉴스레터 이벤트의 멋진 이름을 제안해 주세요.</p>
-            <!--<div class="input-container">
+            <div class="input-container">
                 <input type="text" id="eventName" placeholder="이벤트 이름을 입력하세요" />
                 <label>
                     <input type="checkbox" id="agreeTerms" />
@@ -63,11 +70,10 @@
                 <button onclick="submitEventName()">제출</button>
             </div>
             <div id="eventMessage" class="event-message"></div>
-            <button onclick="downloadCSV()">CSV 다운로드</button>-->
+            <button onclick="downloadCSV()">CSV 다운로드</button>
         </div>
-        
     </div>
-    
+
     <script src="script2.js"></script>
 </body>
 </html>
