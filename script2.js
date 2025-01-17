@@ -2,6 +2,7 @@ const messagesDiv = document.getElementById('messages');
 const userInput = document.getElementById('userInput');
 const questionListDiv = document.getElementById('questionList');
 const questionCategorySelect = document.getElementById('questionCategory');
+const defaultMessageDiv = document.getElementById('defaultMessage'); // 기본 메시지 요소
 
 // 질문 데이터
 const questionData = {
@@ -42,6 +43,10 @@ function updateQuestions() {
 
 // 메시지 추가
 function addMessage(content, sender, isHTML = false) {
+    if (defaultMessageDiv) {
+        defaultMessageDiv.style.display = 'none'; // 기본 메시지 숨기기
+    }
+
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message', sender);
 

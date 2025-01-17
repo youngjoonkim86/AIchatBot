@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DT 추진본부 Newsletter</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -24,8 +24,8 @@
                 <div class="response">
                     <img src="img/gpt-image.png" alt="GPT Icon">
                     <div>
-                        <p>죄송하지만, 저는 인터넷 검색을 할 수 없기 때문에 도요타 7FB 장비 매뉴얼을 직접 찾아드릴 수 없습니다. 그러나 도요타 공식 웹사이트나 해당 장비의 제조사 지원 센터에서 매뉴얼을 다운로드하실 수 있을 것입니다.</p>
-                        <p>도요타의 공식 웹사이트나 고객 지원 페이지에서 "7FB" 모델을 검색하여 관련 매뉴얼을 찾으실 수 있습니다. 또는 장비를 구입한 대리점이나 서비스 센터에 문의하여 매뉴얼을 요청할 수도 있습니다.</p>
+                        <p>죄송하지만, 저는 인터넷 검색을 할 수 없기 때문에 도요타 7FB 장비 매뉴얼을 직접 찾아드릴 수 없습니다.</p>
+                        <p>도요타의 공식 웹사이트나 고객 지원 페이지에서 "7FB" 모델을 검색하여 관련 매뉴얼을 찾으실 수 있습니다.</p>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,12 @@
 
             <!-- 우측 채팅 섹션 -->
             <div class="chat-container">
-                <div id="messages" class="messages"></div>
+                <div class="messages-container">
+                    <div id="defaultMessage" class="default-message">
+                        옆에 버튼을 클릭하여 질문을 선택하세요!
+                    </div>
+                    <div id="messages" class="messages"></div>
+                </div>
                 <div class="input-container">
                     <input type="text" id="userInput" placeholder="Type your message..." />
                     <button onclick="sendMessage()">
@@ -73,7 +78,6 @@
             <button onclick="downloadCSV()">CSV 다운로드</button>
         </div>
     </div>
-
-    <script src="script2.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
